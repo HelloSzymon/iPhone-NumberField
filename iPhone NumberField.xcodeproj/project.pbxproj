@@ -15,6 +15,7 @@
 		15ABC32B295D9F2D0002D307 /* iPhone_NumberFieldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ABC32A295D9F2D0002D307 /* iPhone_NumberFieldUITests.swift */; };
 		15ABC32D295D9F2D0002D307 /* iPhone_NumberFieldUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ABC32C295D9F2D0002D307 /* iPhone_NumberFieldUITestsLaunchTests.swift */; };
 		15ABC33A295DA01E0002D307 /* CountryCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ABC339295DA01D0002D307 /* CountryCodes.swift */; };
+		15ABC33E295DACD80002D307 /* PhoneNumberTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15ABC33D295DACD80002D307 /* PhoneNumberTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		15ABC32A295D9F2D0002D307 /* iPhone_NumberFieldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhone_NumberFieldUITests.swift; sourceTree = "<group>"; };
 		15ABC32C295D9F2D0002D307 /* iPhone_NumberFieldUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iPhone_NumberFieldUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		15ABC339295DA01D0002D307 /* CountryCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCodes.swift; sourceTree = "<group>"; };
+		15ABC33D295DACD80002D307 /* PhoneNumberTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				15ABC30F295D9F2B0002D307 /* iPhone_NumberFieldApp.swift */,
 				15ABC311295D9F2B0002D307 /* ContentView.swift */,
 				15ABC339295DA01D0002D307 /* CountryCodes.swift */,
+				15ABC33D295DACD80002D307 /* PhoneNumberTextField.swift */,
 				15ABC313295D9F2D0002D307 /* Assets.xcassets */,
 				15ABC315295D9F2D0002D307 /* Preview Content */,
 			);
@@ -261,6 +264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15ABC312295D9F2B0002D307 /* ContentView.swift in Sources */,
+				15ABC33E295DACD80002D307 /* PhoneNumberTextField.swift in Sources */,
 				15ABC310295D9F2B0002D307 /* iPhone_NumberFieldApp.swift in Sources */,
 				15ABC33A295DA01E0002D307 /* CountryCodes.swift in Sources */,
 			);

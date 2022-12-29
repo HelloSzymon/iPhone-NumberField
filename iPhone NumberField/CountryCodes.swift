@@ -8,34 +8,32 @@
 import SwiftUI
 
 struct CountryCodes: View {
-    @State var phoneNumber = ""
-    @State var postalCode = ""
-    @ObservedObject var codeTextField = ObservableTextField()
-    
+    @Binding var countryCode : String
+    @Binding var countryFlag : String
+    @Binding var y : CGFloat
+
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .stroke()
-                .frame(width: 270, height: 50)
-            HStack(spacing: 0){
-                HStack(spacing: 0) {
-                    Text("\(flag(country: getCountryCode(codeTextField.value)))")
-                        .frame(width: 30, height: 50)
-                    
-                    TextField("+1" , text: $codeTextField.value)
-                        .keyboardType(.phonePad)
-                        .frame(width: 40, height: 50)
+        GeometryReader { geo in
+            List(self.countries.sorted(by: <), id: \.key) { key , value in
+                HStack {
+                    Text("\(self.flag(country: key))")
+                    Text("\(self.countryName(coutryCode: key) ?? key)")
+                    Spacer()
+                    Text("+\(value)")
+                }.background(Color.white)
+                    .font(.system(size: 20))
+                    .onTapGesture {
+                        self.countryCode = value
+                        self.countryFlag = self.flag(country: key)
+                        withAnimation(.spring()) {
+                            self.y = 150
+                        }
                 }
-                .background(Color.yellow)
-                .cornerRadius(10)
-                
-                
-                TextField("Phone Number", text: $phoneNumber)
-                    .padding()
-                    .frame(width: 200, height: 50)
-                    .keyboardType(.phonePad)
             }
-            .padding()
+            .padding(.bottom)
+            .frame(width: geo.size.width, height: 300)
+            .position(x: geo.frame(in: .global).midX, y: geo.frame(in: .global).maxY - 150)
+            
         }
     }
     
@@ -96,23 +94,9 @@ struct CountryCodes: View {
         return flag
     }
     
-    func getCountryCode(_ country: String) -> String {
-        if let key = countries.first(where: {$0.value == country})? .key { return key}
-        return ""
+    func countryName(coutryCode: String) -> String? {
+        let current = Locale(identifier: "en_US")
+        return current.localizedString(forRegionCode: coutryCode)
     }
-}
-class ObservableTextField: ObservableObject {
-    @Published var value = "" {
-        didSet {
-            if value.count > 3 {
-                value = String(value.prefix(3))
-            }
-        }
-    }
-}
-
-struct CountryCodes_Previews: PreviewProvider {
-    static var previews: some View {
-        CountryCodes()
-    }
+    
 }
